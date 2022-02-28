@@ -31,14 +31,15 @@ import emitter from '@/libs/emitter'
 export default {
   data () {
     return {
-      cartData: {}
+      cartData: {
+        carts: []
+      }
     }
   },
   methods: {
     getCart () {
       this.$http.get(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`)
         .then(res => {
-          console.log('cart:', res)
           this.cartData = res.data.data
         })
     }

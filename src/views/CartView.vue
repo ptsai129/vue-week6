@@ -90,7 +90,6 @@ export default {
       }
       this.isLoadingItem = id
       this.$http.post(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`, { data }).then((res) => {
-        this.getCarts()
         this.isLoadingItem = ''
         emitter.emit('get-cart')
       })
