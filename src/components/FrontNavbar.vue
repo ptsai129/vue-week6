@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import emitter from '@/libs/emitter'
+
 export default {
   data () {
     return {
@@ -43,6 +45,9 @@ export default {
   },
   mounted () {
     this.getCart()
+    emitter.on('get-cart', () => {
+      this.getCart()
+    })
   }
 }
 </script>

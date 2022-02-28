@@ -66,6 +66,8 @@
 </template>
 
 <script>
+import emitter from '@/libs/emitter'
+
 export default {
   data () {
     return {
@@ -90,6 +92,7 @@ export default {
       this.$http.post(`${process.env.VUE_APP_API}api/${process.env.VUE_APP_PATH}/cart`, { data }).then((res) => {
         this.getCarts()
         this.isLoadingItem = ''
+        emitter.emit('get-cart')
       })
     }
   },
